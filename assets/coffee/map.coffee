@@ -13,3 +13,7 @@ class Map
 		layer = new L.TileLayer(url, options)
 		@map.addLayer(layer)
 	
+	add_marker: (latitude, longitude) ->
+		location = new L.LatLng(latitude, longitude);
+		marker = new L.Marker(location);
+		@map.addLayer(marker)

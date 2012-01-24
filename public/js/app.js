@@ -1,5 +1,5 @@
 (function() {
-  var Map, global;
+  var Map, global, map;
 
   Map = (function() {
 
@@ -14,6 +14,13 @@
       var layer;
       layer = new L.TileLayer(url, options);
       return this.map.addLayer(layer);
+    };
+
+    Map.prototype.add_marker = function(latitude, longitude) {
+      var location, marker;
+      location = new L.LatLng(latitude, longitude);
+      marker = new L.Marker(location);
+      return this.map.addLayer(marker);
     };
 
     return Map;
@@ -45,6 +52,8 @@
     view: new L.LatLng(-27.46758, 153.027892)
   };
 
-  new Map('map');
+  map = new Map('map');
+
+  map.add_marker(-27.46758, 153.027892);
 
 }).call(this);

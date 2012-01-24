@@ -14,6 +14,7 @@ global.slippy_map =
 		minZoom:		1
 		maxZoom:		15
 		attribution:	'Map data © openstreetmap contributors'
-	view:	new L.LatLng(-27.46758, 153.027892);
+	view:	new L.LatLng(-27.46758, 153.027892)
 
-new Map('map')
+map = new Map('map')
+map.add_marker(-27.46758, 153.027892)

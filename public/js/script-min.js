@@ -1,1 +1,0 @@
-function initmap(){map=new L.Map("map");var a="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",b="Map data © openstreetmap contributors",c=new L.TileLayer(a,{minZoom:1,maxZoom:15,attribution:b});map.setView(brisbane,8);map.addLayer(c)}var map,brisbane=new L.LatLng(-27.46758,153.027892);initmap();

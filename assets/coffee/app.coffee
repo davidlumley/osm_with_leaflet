@@ -1,6 +1,7 @@
 global = exports ? this
 
 #@codekit-prepend "map.coffee"
+#@codekit-prepend "geolocation.coffee"
 
 osm_url		=	"http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 osm_attrib	=	"Map data: <a href=\"http://www.openstreetmap.org/\">openstreetmap contributors.</a>"
@@ -44,4 +45,10 @@ map = new Map('map')
 map.add_wms_layer(nexrad.url, nexrad.options)
 map.add_wms_layer(eea_city_areas.url, eea_city_areas.options)
 map.add_wms_layer(eea_urban_noise.url, eea_urban_noise.options)
-map.add_marker(-27.46758, 153.027892)
+
+callback = (position) ->
+	map.add_marker(position.coords.latitude, position.coords.longitude)
+	map.set_view(position.coords.latitude, position.coords.longitude)
+	
+position = new Geolocation
+position.get_position(callback)

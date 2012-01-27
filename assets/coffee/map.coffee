@@ -30,4 +30,6 @@ class Map
 	add_texture: (texture) ->
 		@map.addLayer(image)
 	
-	
+	set_view: (latitude, longitude) ->
+		view = new L.LatLng(latitude, longitude)
+		@map.setView(view,10)
